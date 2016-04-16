@@ -87,3 +87,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+#Suppress 110 warnings
+import logging, copy
+from django.utils.log import DEFAULT_LOGGING
+
+LOGGING = copy.deepcopy(DEFAULT_LOGGING)
+LOGGING['filters']['suppress_deprecated'] = {
+    '()': 'nnsave.settings.SuppressDeprecated'
+}
+class SuppressDeprecated(logging.Filter):
+    def filter_deprecation_warnings(self, record):
+	warnings_to_filter = [
+	    'RemovedInDjango110Warning'
+	]
+	return not any([warn in record.getMessage() for warn in warnings_to_filter])
