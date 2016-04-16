@@ -9,7 +9,7 @@ class Category(models.Model):
 	return unicode("Category %s" % self.name)
 
 class Location(models.Model):
-    name = models.TextField()
+    name = models.CharField(max_length=150)
     phone = models.CharField(max_length=15)
     website = models.URLField(blank = True)
     email = models.EmailField(blank = True)
