@@ -24,3 +24,8 @@ class Location(models.Model):
 		       (self.name,
 			self.category.__unicode__(),
 			self.visit_count))
+
+class DetectedLocation(models.Model):
+    location = models.ForeignKey('Location', on_delete = models.CASCADE)
+    device_id = models.CharField(max_length = 32)
+    date = models.DateTimeField(auto_now_add = True )
