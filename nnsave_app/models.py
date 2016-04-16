@@ -10,7 +10,7 @@ class Category(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=150)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=100)
     website = models.URLField(blank = True)
     email = models.EmailField(blank = True)
     address = models.TextField(blank = True)
