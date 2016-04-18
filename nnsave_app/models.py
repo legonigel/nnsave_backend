@@ -1,6 +1,14 @@
-from django.contrib.gis.db import models
+"""
+Models for this app
 
-# Create your models here.
+Copyright (C) 2016 Nigel Armstrong legonigel@gmail.com
+All rights reserved.
+
+This software may be modified and distributed under the terms
+of the MIT license. See LICENSE file for details
+"""
+
+from django.contrib.gis.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=200)

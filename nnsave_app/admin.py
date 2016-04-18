@@ -1,3 +1,13 @@
+"""
+Admin pages for nnsave_app
+
+Copyright (C) 2016 Nigel Armstrong legonigel@gmail.com
+All rights reserved.
+
+This software may be modified and distributed under the terms
+of the MIT license. See LICENSE file for details
+"""
+
 from django.contrib.gis import admin
 from .models import Location, Category, DetectedLocation
 from import_export import resources

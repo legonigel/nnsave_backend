@@ -1,3 +1,13 @@
+"""
+Views for nnsave_app
+
+Copyright (C) 2016 Nigel Armstrong legonigel@gmail.com
+All rights reserved.
+
+This software may be modified and distributed under the terms
+of the MIT license. See LICENSE file for details
+"""
+
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse, HttpResponseBadRequest
 from .models import Location, Category, DetectedLocation

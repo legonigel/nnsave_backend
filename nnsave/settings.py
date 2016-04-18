@@ -1,6 +1,12 @@
 """
 Django settings for nnsave_backend project.
 
+Copyright (C) 2016 Nigel Armstrong legonigel@gmail.com
+All rights reserved.
+
+This software may be modified and distributed under the terms
+of the MIT license. See LICENSE file for details
+
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
 
