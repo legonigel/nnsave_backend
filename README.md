@@ -105,9 +105,27 @@ for row in mycsv:
 ```
 
 I had hoped to get Django import_export to work with this importing, but I couldn't figure out how to get Points with it.
-Maybe in the future. If import_export gets working it could be added to the admin interface to make it super simple to import locations
+Maybe in the future. If import_export gets working it could be added to the admin interface to make it super simple to import locations.
+
+It looks like I probably could have used GeoDjango's DataSource interface
+to do this. If you read the GeoDjango tutorial's section on "Importing
+Spatial Data", it tells you how to import a shp file. A shp file can be
+created from a csv using ogr2ogr. I think the following command will work
+for a file named `import.csv` located in `/mydir`:
+```
+ogr2ogr -f "ESRI Shapefile" /mydir import.csv
+ogr2ogr -f "ESRI Shapefile" /mydir import.vrt
+```
+Then in the django shell:
+```
+from django.contrib.gis.utils import LayerMapping
+from nnsave_app.models import Location
+mapping = {} #This nees to be figured out
+lm = LayerMapping(Location, 'import.shp', mapping)
+lm.save(verbose=True)
+```
 
 # Hackathon
 
 If you are interestedin what code was written in the hackathon,
-everything up to commit c2c780e was done at the hackathon
+everything up to commit [c2c780e](https://github.com/legonigel/nnsave_backend/commit/c2c780e3fd14448359c2738e13ffacfc729ef2ff) was done at the hackathon
