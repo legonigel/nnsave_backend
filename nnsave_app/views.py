@@ -39,7 +39,7 @@ def get_location(request, **kwargs):
 def get_http_from_location_list(locations):
     data = []
     for obj in locations:
-	data.append(get_locations_as_dict(obj))
+	data.append(get_location_as_dict(obj))
     data = json.dumps(data)
     if not locations:
 	return HttpResponse(data, content_type = 'application/json', status=204)
@@ -128,6 +128,3 @@ def detected_location(request, **kwargs):
     response = HttpResponse(data, content_type = 'application/json')
     response.__setitem__('Location', '/locations/'+str(loc_pk))
     return response
-
-def index(request):
-    return HttpResponse()
